@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>충남대 16시간 몰입 교육 프로그램 | 선착순 20명</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* SVG Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .rotating {
+            animation: rotate 20s linear infinite;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: #F8F8F8;
+            padding: 20px 0;
+            border-bottom: 3px solid #003366;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background-color: #003366;
+            color: #FFC300;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003366 0%, #004488 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,195,0,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,195,0,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255,195,0,0.08) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 30px;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .highlight {
+            color: #FFC300;
+            font-size: 3em;
+            display: block;
+            margin: 20px 0;
+            font-weight: 900;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            margin-top: 20px;
+            font-weight: 500;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background-color: #FFC300;
+            color: #003366;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 20px rgba(255,195,0,0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            color: #003366;
+            font-size: 2.5em;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        /* Icon Styles */
+        .icon-large {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,195,0,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #FFC300;
+            box-shadow: 0 15px 40px rgba(0,51,102,0.25);
+        }
+
+        .benefit-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .benefit-card h3 {
+            color: #003366;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .benefit-highlight {
+            color: #FFC300;
+            font-size: 2.5em;
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card p {
+            font-size: 1.05em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Program Overview */
+        .program-box {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 8px solid #003366;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .program-box h3 {
+            color: #003366;
+            font-size: 1.6em;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .program-box ul {
+            list-style: none;
+            font-size: 1.05em;
+            line-height: 2;
+        }
+
+        .program-box li {
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .program-box li::before {
+            content: '✓';
+            color: #FFC300;
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Visual Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,51,102,0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #003366;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-number span {
+            color: #FFC300;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Timeline Visual */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #003366 0%, #FFC300 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 0 30px;
+        }
+
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background: #FFC300;
+            border: 5px solid #003366;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 0 4px white;
+        }
+
+        /* Table Styles */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .info-table th {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .info-table td {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-table tr:hover {
+            background-color: #f8f8f8;
+        }
+
+        .highlight-cell {
+            color: #FFC300;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        /* Schedule Section */
+        .schedule-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .schedule-card {
+            background: white;
+            border: 3px solid #003366;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0,51,102,0.3);
+        }
+
+        .schedule-card .day {
+            color: #003366;
+            font-size: 2em;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .schedule-card .date {
+            color: #FFC300;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .schedule-card .time {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .schedule-card .location {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: linear-gradient(135deg, #003366 0%, #004488 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .trust-section .section-title {
+            color: white;
+        }
+
+        .trust-logo {
+            font-size: 4em;
+            margin: 30px 0;
+        }
+
+        .trust-details {
+            font-size: 1.3em;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #FFC300;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            color: #003366;
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #003366;
+            color: #FFC300;
+            padding: 25px 60px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 3px solid #003366;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            background-color: #004488;
+        }
+
+        .cta-subtitle {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #003366;
+        }
+
+        .countdown {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .countdown-title {
+            color: #003366;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: #003366;
+        }
+
+        .countdown-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f8f8;
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            line-height: 2;
+        }
+
+        .footer strong {
+            color: #003366;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fff3cd;
+            border-left: 6px solid #FFC300;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .warning-box strong {
+            color: #003366;
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero .highlight {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1em;
+            }
+
+            .hero-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+                padding: 6px 10px;
+            }
+
+            .benefits-grid,
+            .schedule-cards,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .icon-large {
+                width: 100px;
+                height: 100px;
+            }
+
+            .benefit-icon {
+                font-size: 3.5em;
+            }
+
+            .info-table {
+                font-size: 0.85em;
+            }
+
+            .info-table th,
+            .info-table td {
+                padding: 12px 8px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                margin: 0 !important;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: 15px;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+            }
+
+            .program-box,
+            .warning-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#program">프로그램</a>
+                <a href="#benefits">혜택</a>
+                <a href="#schedule">일정</a>
+                <a href="#trust">운영기관</a>
+                <a href="#apply">신청</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-visual">
+                    <svg class="hero-icon floating" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" fill="#FFC300" opacity="0.2"/>
+                        <circle cx="100" cy="100" r="60" fill="#FFC300" opacity="0.4"/>
+                        <circle cx="100" cy="100" r="40" fill="#FFC300"/>
+                        <text x="100" y="115" font-size="50" font-weight="900" fill="#003366" text-anchor="middle">16</text>
+                    </svg>
+                </div>
+                <h1>
+                    학점 그 이상의 가치!
+                    <span class="highlight">16시간의 몰입</span>
+                </h1>
+                <p class="subtitle">2025 핵심 비교과 교육</p>
+                <div class="urgency-badge">⚡ 선착순 20명 모집 ⚡</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview -->
+    <section id="program" class="section">
+        <div class="container">
+            <h2 class="section-title">프로그램 개요</h2>
+            
+            <!-- Visual Stats -->
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number"><span>16</span>시간</div>
+                    <div class="stat-label">집중 교육</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number"><span>20</span>명</div>
+                    <div class="stat-label">선착순 모집</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number"><span>2</span>일</div>
+                    <div class="stat-label">주말 집중</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number"><span>100</span>%</div>
+                    <div class="stat-label">무료 참여</div>
+                </div>
+            </div>
+            
+            <div class="program-box">
+                <h3>🎯 모집 대상</h3>
+                <ul>
+                    <li><strong>실질적인 경쟁력</strong>을 키우고 싶은 학부생</li>
+                    <li><strong>자기 주도 학습 능력</strong> 향상을 원하는 학생</li>
+                    <li>11/8(토) ~ 11/9(일) <strong>전 일정 참여 가능자</strong></li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ 참여 조건:</strong> 불참 시 추후 프로그램 참여 제한
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section" style="background: #f8f8f8;">
+        <div class="container">
+            <h2 class="section-title">압도적인 참여 혜택</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <svg class="icon-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="90" fill="#FFC300" opacity="0.2"/>
+                        <path d="M100 30 L120 80 L175 88 L135 125 L145 180 L100 153 L55 180 L65 125 L25 88 L80 80 Z" fill="#FFC300"/>
+                        <circle cx="100" cy="100" r="35" fill="#003366"/>
+                        <text x="100" y="110" font-size="28" font-weight="900" fill="#FFC300" text-anchor="middle">16</text>
+                    </svg>
+                    <h3>핵심 마일리지</h3>
+                    <div class="benefit-highlight">16시간</div>
+                    <p>꿈모아 마일리지 인정</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <svg class="icon-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="70" width="120" height="90" rx="15" fill="#FFC300" opacity="0.2"/>
+                        <rect x="50" y="80" width="100" height="70" rx="10" fill="#FFC300"/>
+                        <circle cx="100" cy="115" r="25" fill="#003366"/>
+                        <path d="M85 115 L95 125 L115 105" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <rect x="70" y="60" width="60" height="15" rx="5" fill="#003366"/>
+                    </svg>
+                    <h3>학습 지원</h3>
+                    <div class="benefit-highlight">중식 무료</div>
+                    <p>1회차, 2회차 모두 제공</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <svg class="icon-large" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="80" r="40" fill="#FFC300"/>
+                        <path d="M100 120 L60 160 L60 180 L140 180 L140 160 Z" fill="#003366"/>
+                        <circle cx="70" cy="60" r="15" fill="#FFC300" opacity="0.6"/>
+                        <circle cx="130" cy="60" r="15" fill="#FFC300" opacity="0.6"/>
+                        <path d="M85 75 L95 82 L105 75" stroke="#003366" stroke-width="3" fill="none"/>
+                        <path d="M110 75 L120 82 L130 75" stroke="#003366" stroke-width="3" fill="none"/>
+                    </svg>
+                    <h3>신뢰 구축</h3>
+                    <div class="benefit-highlight">우선권</div>
+                    <p>향후 프로그램 참여 우선</p>
+                </div>
+            </div>
+
+            <table class="info-table" style="margin-top: 60px;">
+                <tr>
+                    <th>혜택</th>
+                    <th>내용</th>
+                    <th>조건</th>
+                </tr>
+                <tr>
+                    <td><strong>마일리지</strong></td>
+                    <td class="highlight-cell">16시간 인정</td>
+                    <td>80% 이상 이수</td>
+                </tr>
+                <tr>
+                    <td><strong>중식</strong></td>
+                    <td>무료 제공</td>
+                    <td>1·2회차 모두</td>
+                </tr>
+                <tr>
+                    <td><strong>우선권</strong></td>
+                    <td>향후 프로그램 우선 참여</td>
+                    <td>성실 참여자</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="section">
+        <div class="container">
+            <h2 class="section-title">일정 및 장소</h2>
+            
+            <!-- Timeline Visual -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content" style="background: linear-gradient(135deg, #FFC300 0%, #FFD700 100%); color: #003366;">
+                        <h3 style="font-size: 2em; margin-bottom: 10px;">📅 신청 마감</h3>
+                        <p style="font-size: 1.8em; font-weight: 900; margin: 10px 0;">2025. 11. 2.(일) 23:59</p>
+                        <p style="font-size: 1.3em; font-weight: 700;">선착순 20명 모집!</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div style="flex: 1;"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div style="flex: 1;"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 style="color: #003366; font-size: 1.8em; margin-bottom: 15px;">1️⃣ 1회차 교육</h3>
+                        <p style="font-size: 1.4em; color: #FFC300; font-weight: 900; margin: 10px 0;">2025. 11. 8.(토)</p>
+                        <p style="font-size: 1.2em; color: #666; margin: 5px 0;">⏰ 09:00 ~ 18:00 (8시간)</p>
+                        <p style="font-size: 1.1em; color: #333; margin: 10px 0;">📍 융합교육혁신센터(E5-1) 201호</p>
+                        <p style="font-size: 1.1em; color: #333;">🍱 중식 제공</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 style="color: #003366; font-size: 1.8em; margin-bottom: 15px;">2️⃣ 2회차 교육</h3>
+                        <p style="font-size: 1.4em; color: #FFC300; font-weight: 900; margin: 10px 0;">2025. 11. 9.(일)</p>
+                        <p style="font-size: 1.2em; color: #666; margin: 5px 0;">⏰ 09:00 ~ 18:00 (8시간)</p>
+                        <p style="font-size: 1.1em; color: #333; margin: 10px 0;">📍 융합교육혁신센터(E5-1) 201호</p>
+                        <p style="font-size: 1.1em; color: #333;">🍱 중식 제공</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div style="flex: 1;"></div>
+                </div>
+            </div>
+
+            <table class="info-table" style="margin-top: 60px;">
+                <tr>
+                    <th>구분</th>
+                    <th>내용</th>
+                    <th>비고</th>
+                </tr>
+                <tr>
+                    <td><strong>참여 비용</strong></td>
+                    <td class="highlight-cell">전액 무료</td>
+                    <td>중식 포함</td>
+                </tr>
+                <tr>
+                    <td><strong>참여 의무</strong></td>
+                    <td>16시간 완전 참여</td>
+                    <td>불참 시 제한</td>
+                </tr>
+                <tr>
+                    <td><strong>마일리지</strong></td>
+                    <td class="highlight-cell">80% 이상 이수</td>
+                    <td>16시간 인정</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section id="trust" class="trust-section">
+        <div class="container">
+            <h2 class="section-title">믿을 수 있는 교육</h2>
+            
+            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="margin: 30px auto; display: block;">
+                <circle cx="100" cy="100" r="90" fill="#FFC300" opacity="0.3"/>
+                <circle cx="100" cy="100" r="70" fill="#FFC300" opacity="0.5"/>
+                <path d="M100 40 L100 100 L70 130 L100 160 L130 130 Z" fill="white"/>
+                <path d="M85 100 L95 110 L115 90" stroke="#003366" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <circle cx="100" cy="100" r="50" stroke="white" stroke-width="3" fill="none"/>
+            </svg>
+            
+            <div class="trust-details">
+                <p style="font-size: 1.5em; font-weight: 700; margin-bottom: 20px;">
+                    충남대학교 교육혁신본부<br>교수학습지원센터
+                </p>
+                <p style="font-size: 1.2em;">
+                    엄격한 기획 및 관리하에 운영
+                </p>
+                <p style="margin-top: 30px; font-size: 1.2em;">
+                    📍 융합교육혁신센터(E5-1) 201호
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="apply" class="cta-section">
+        <div class="container">
+            <svg width="150" height="150" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 30px; display: block;" class="floating">
+                <circle cx="100" cy="100" r="80" fill="#003366"/>
+                <path d="M100 40 L130 90 L180 90 L140 120 L160 170 L100 140 L40 170 L60 120 L20 90 L70 90 Z" fill="#FFC300"/>
+            </svg>
+            
+            <h2 class="cta-title">지금이 기회입니다</h2>
+            
+            <div class="countdown">
+                <div class="countdown-title">⏰ 신청 마감까지</div>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">-</div>
+                        <div class="countdown-label">일</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">-</div>
+                        <div class="countdown-label">시간</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">-</div>
+                        <div class="countdown-label">분</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">-</div>
+                        <div class="countdown-label">초</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size: 1.3em; color: #003366; font-weight: 700; margin: 40px 0;">
+                16시간을 확실한 스펙으로!
+            </p>
+            
+            <a href="#" class="cta-button" onclick="alert('학사지원시스템 > 비교과 > 나의 신청내역에서 신청해주세요!'); return false;">
+                🚀 선착순 20명 신청하기
+            </a>
+            
+            <p class="cta-subtitle">
+                학사지원시스템 > 비교과 > 나의 신청내역
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><strong>만족도 설문:</strong> 선정자에 한하여 카카오톡 단체방 공지</p>
+            <p style="margin-top: 20px;"><strong>문의:</strong> 교육혁신본부 교수학습지원센터</p>
+            <p>☎ 042-821-7359 | 카카오톡 채널 1:1 대화</p>
+            <p style="margin-top: 30px; color: #999;">© 2025 충남대학교 교육혁신본부</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        const deadline = new Date('2025-11-02T23:59:59').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = deadline - now;
+
+            if (distance < 0) {
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .schedule-card, .program-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
